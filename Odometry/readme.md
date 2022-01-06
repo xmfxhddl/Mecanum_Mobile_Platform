@@ -1,4 +1,4 @@
-## Visual-Inertial Odometry ()
+## Visual-Inertial Odometry (ROS)
 - https://github.com/IntelRealSense/realsense-ros
 
  In this link, I used rs_rtabmap.launch  
