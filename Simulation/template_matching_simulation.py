@@ -12,7 +12,7 @@ from func import *
 from roi_point_func import *
 from PIL import Image as I
 from skimage.transform import (hough_line, hough_line_peaks)
-from cv2 import cv2
+import cv2
 import pickle
 
 import matplotlib.pyplot as plt
