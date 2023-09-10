@@ -5,16 +5,15 @@ from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 # Fixed parameter
-gear_ratio = 14.0 # gear_ratio: 기어비 14:1
-r = 0.0762 # r: 바퀴의 반지름
-l = 0.23 # l: 메카넘 모바일 플랫폼의 가로 길이
-w = 0.25225 # w: 메카넘 모바일 플랫폼의 세로 길이
+gear_ratio = 14.0 # gear_ratio
+r = 0.0762 # r: wheel's radius
+l = 0.23 # l: mecanum mobile platform's width
+w = 0.25225 # w: mecanum mobile platform's length
 alpha = l + w
 
 # Define Initial parameter
 
 i = 0
-
 Hz = 50
 dt = 1./Hz # degreee difference in 0.02
 phi, x_pos, y_pos = 0.0, 0.0, 0.0
@@ -35,11 +34,6 @@ def convert_wheel_velocity(all_encoder_data, n):
         u2 = all_encoder_data[n][1]
         u3 = all_encoder_data[n][2]
         u4 = all_encoder_data[n][3]
-     
-        # u1 = rad2deg(all_encoder_data[n][0])
-        # u2 = rad2deg(all_encoder_data[n][1])
-        # u3 = rad2deg(all_encoder_data[n][2])
-        # u4 = rad2deg(all_encoder_data[n][3])
         
         odometry_info, real_x_pos, real_y_pos = odometry(u1, u2, u3, u4, odometry_info, dt)
         
@@ -64,13 +58,6 @@ def convert_wheel_velocity(all_encoder_data, n):
         
         return odometry_info, real_x_pos, real_y_pos
         
-    
-def deg2rad(degree):
-    
-    rad = degree * np.pi / 180
-
-    return rad
-
 def odometry(u1, u2, u3, u4, odometry_info, dt):
     
     ######## kinematic model of mecanum mobile platform ########
