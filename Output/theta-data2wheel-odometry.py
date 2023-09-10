@@ -122,7 +122,7 @@ def odometry(u1, u2, u3, u4, odometry_info, dt):
 
     return update_odometry_info, x_pos_update, y_pos_update
 
-with open('./data_2/encoder_data/theta_data.pickle', 'rb') as th:
+with open('./data/theta_data.pickle', 'rb') as th:
     all_encoder_data = pickle.load(th, encoding='latin1')
     
 list_count = len(all_encoder_data)
